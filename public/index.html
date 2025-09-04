@@ -1,31 +1,39 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SOS MASCOTAS</title>
+    <title>SOS PELUDOS</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         body {
             font-family: 'Inter', sans-serif;
         }
+
         .active-filter {
-            background-color: #059669; /* emerald-600 */
+            background-color: #059669;
+            /* emerald-600 */
             color: white;
             border-color: #059669;
         }
+
         .modal-backdrop {
             background-color: rgba(0, 0, 0, 0.5);
         }
+
         .line-clamp-3 {
             overflow: hidden;
             display: -webkit-box;
             -webkit-box-orient: vertical;
             -webkit-line-clamp: 3;
+            line-clamp: 3;
+            /* Standard property for future compatibility */
         }
     </style>
 </head>
+
 <body class="bg-gray-50">
 
     <!-- Navigation -->
@@ -33,14 +41,18 @@
         <div class="container mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center py-4">
                 <div class="flex items-center space-x-2">
-                     <svg class="h-8 w-8 text-emerald-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 016-6h6a6 6 0 016 6v1h-3M15 21a3 3 0 01-3 3H9a3 3 0 01-3-3m15-12a3 3 0 00-3-3H6a3 3 0 00-3 3v6a3 3 0 003 3h12a3 3 0 003-3v-6z" />
+                    <svg class="h-8 w-8 text-emerald-600" xmlns="http://www.w3.org/2000/svg" fill="none"
+                        viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 016-6h6a6 6 0 016 6v1h-3M15 21a3 3 0 01-3 3H9a3 3 0 01-3-3m15-12a3 3 0 00-3-3H6a3 3 0 00-3 3v6a3 3 0 003 3h12a3 3 0 003-3v-6z" />
                     </svg>
-                    <h1 class="text-2xl font-bold text-gray-800">Alerta Mascota</h1>
+                    <h1 class="text-2xl font-bold text-gray-800">SOS Peludos</h1>
                 </div>
-                <button id="report-btn" class="bg-emerald-600 text-white font-semibold py-2 px-4 rounded-lg hover:bg-emerald-700 transition-colors duration-300 flex items-center space-x-2">
+                <button id="report-btn"
+                    class="bg-emerald-600 text-white font-semibold py-2 px-4 rounded-lg hover:bg-emerald-700 transition-colors duration-300 flex items-center space-x-2">
                     <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
-                        <path d="M10.75 4.75a.75.75 0 00-1.5 0v4.5h-4.5a.75.75 0 000 1.5h4.5v4.5a.75.75 0 001.5 0v-4.5h4.5a.75.75 0 000-1.5h-4.5v-4.5z" />
+                        <path
+                            d="M10.75 4.75a.75.75 0 00-1.5 0v4.5h-4.5a.75.75 0 000 1.5h4.5v4.5a.75.75 0 001.5 0v-4.5h4.5a.75.75 0 000-1.5h-4.5v-4.5z" />
                     </svg>
                     <span>Reportar mascota</span>
                 </button>
@@ -52,15 +64,21 @@
         <!-- Header -->
         <header class="text-center mb-8">
             <h2 class="text-3xl font-bold text-gray-800">Todas las mascotas</h2>
-            <p class="text-gray-600 mt-2">Encontrá mascotas perdidas, reportá animales encontrados o descubrí un nuevo amigo.</p>
+            <p class="text-gray-600 mt-2">Encontrá mascotas perdidas, reportá animales encontrados o descubrí un nuevo
+                amigo.</p>
         </header>
 
         <!-- Filter Buttons -->
         <div id="filter-container" class="flex flex-wrap justify-center gap-3 mb-8">
-            <button data-filter="all" class="filter-btn active-filter py-2 px-5 rounded-full text-sm font-semibold border-2 border-transparent transition-colors duration-300">Todos</button>
-            <button data-filter="Perdido" class="filter-btn bg-white py-2 px-5 rounded-full text-sm font-semibold text-gray-700 hover:bg-gray-200 border-2 border-gray-200 transition-colors duration-300">Perdidos</button>
-            <button data-filter="Encontrado" class="filter-btn bg-white py-2 px-5 rounded-full text-sm font-semibold text-gray-700 hover:bg-gray-200 border-2 border-gray-200 transition-colors duration-300">Encontrados</button>
-            <button data-filter="Adopción" class="filter-btn bg-white py-2 px-5 rounded-full text-sm font-semibold text-gray-700 hover:bg-gray-200 border-2 border-gray-200 transition-colors duration-300">En Adopción</button>
+            <button data-filter="all"
+                class="filter-btn active-filter py-2 px-5 rounded-full text-sm font-semibold border-2 border-transparent transition-colors duration-300">Todos</button>
+            <button data-filter="Perdido"
+                class="filter-btn bg-white py-2 px-5 rounded-full text-sm font-semibold text-gray-700 hover:bg-gray-200 border-2 border-gray-200 transition-colors duration-300">Perdidos</button>
+            <button data-filter="Encontrado"
+                class="filter-btn bg-white py-2 px-5 rounded-full text-sm font-semibold text-gray-700 hover:bg-gray-200 border-2 border-gray-200 transition-colors duration-300">Encontrados</button>
+            <button data-filter="Adopción"
+                class="filter-btn bg-white py-2 px-5 rounded-full text-sm font-semibold text-gray-700 hover:bg-gray-200 border-2 border-gray-200 transition-colors duration-300">En
+                Adopción</button>
         </div>
 
         <!-- Animal Grid -->
@@ -71,31 +89,44 @@
 
     <!-- Animal Card Template (hidden) -->
     <template id="animal-template">
-        <div class="animal-card bg-white rounded-lg shadow-md overflow-hidden flex flex-col transform hover:-translate-y-1 transition-transform duration-300 cursor-pointer">
+        <div
+            class="animal-card bg-white rounded-lg shadow-md overflow-hidden flex flex-col transform hover:-translate-y-1 transition-transform duration-300 cursor-pointer">
             <div class="relative">
-                <img class="animal-image w-full h-56 object-cover" src="" alt="Foto de animal" onerror="this.onerror=null;this.src='https://placehold.co/600x400/e2e8f0/4a5568?text=Imagen+No+Encontrada';">
-                <span class="animal-status absolute top-2 left-2 text-white text-xs font-bold py-1 px-3 rounded-full"></span>
+                <img class="animal-image w-full h-56 object-cover" src="" alt="Foto de animal"
+                    onerror="this.onerror=null;this.src='https://placehold.co/600x400/e2e8f0/4a5568?text=Imagen+No+Encontrada';">
+                <span
+                    class="animal-status absolute top-2 left-2 text-white text-xs font-bold py-1 px-3 rounded-full"></span>
             </div>
             <div class="p-4 flex-grow">
                 <h3 class="animal-type font-bold text-lg text-gray-800 mb-1"></h3>
                 <p class="animal-description text-gray-600 text-sm mb-4 line-clamp-3"></p>
             </div>
-<div class="p-4 border-t border-gray-100 text-xs text-gray-500 flex flex-wrap justify-between gap-y-2 gap-x-4 items-center">
-    <div class="flex items-center gap-2 min-w-0">
-        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M9.69 18.933l.003.001C9.89 19.02 10 19 10 19s.11.02.308-.066l.002-.001.006-.003.018-.008a5.741 5.741 0 00.281-.14c.186-.1.4-.22.653-.364.253-.145.554-.319.89-.53C13.435 17.15 15.214 15.5 16.5 13.5c1.285-2 1.5-4 1.5-5.5A8 8 0 102 8c0 1.5.215 3.5 1.5 5.5 1.286 2 3.065 3.65 4.49 4.634.336.211.637.385.89.53.253.143.467.263.653.364.09.05.182.097.28.14l.018.008.006.003zM10 11.5a3.5 3.5 0 100-7 3.5 3.5 0 000 7z" clip-rule="evenodd" /></svg>
-        <span class="animal-location truncate"></span>
-    </div>
-    <div class="flex items-center gap-2 min-w-0">
-        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M5.75 2a.75.75 0 01.75.75V4h7V2.75a.75.75 0 011.5 0V4h.25A2.75 2.75 0 0118 6.75v8.5A2.75 2.75 0 0115.25 18H4.75A2.75 2.75 0 012 15.25v-8.5A2.75 2.75 0 014.75 4H5V2.75A.75.75 0 015.75 2zm-1 5.5c0-.414.336-.75.75-.75h10.5a.75.75 0 010 1.5H5.5a.75.75 0 01-.75-.75z" clip-rule="evenodd" /></svg>
-        <span class="animal-date truncate"></span>
-    </div>
-</div>
+            <div
+                class="p-4 border-t border-gray-100 text-xs text-gray-500 flex flex-wrap justify-between gap-y-2 gap-x-4 items-center">
+                <div class="flex items-center gap-2 min-w-0">
+                    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd"
+                            d="M9.69 18.933l.003.001C9.89 19.02 10 19 10 19s.11.02.308-.066l.002-.001.006-.003.018-.008a5.741 5.741 0 00.281-.14c.186-.1.4-.22.653-.364.253-.145.554-.319.89-.53C13.435 17.15 15.214 15.5 16.5 13.5c1.285-2 1.5-4 1.5-5.5A8 8 0 102 8c0 1.5.215 3.5 1.5 5.5 1.286 2 3.065 3.65 4.49 4.634.336.211.637.385.89.53.253.143.467.263.653.364.09.05.182.097.28.14l.018.008.006.003zM10 11.5a3.5 3.5 0 100-7 3.5 3.5 0 000 7z"
+                            clip-rule="evenodd" />
+                    </svg>
+                    <span class="animal-location truncate"></span>
+                </div>
+                <div class="flex items-center gap-2 min-w-0">
+                    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd"
+                            d="M5.75 2a.75.75 0 01.75.75V4h7V2.75a.75.75 0 011.5 0V4h.25A2.75 2.75 0 0118 6.75v8.5A2.75 2.75 0 0115.25 18H4.75A2.75 2.75 0 012 15.25v-8.5A2.75 2.75 0 014.75 4H5V2.75A.75.75 0 015.75 2zm-1 5.5c0-.414.336-.75.75-.75h10.5a.75.75 0 010 1.5H5.5a.75.75 0 01-.75-.75z"
+                            clip-rule="evenodd" />
+                    </svg>
+                    <span class="animal-date truncate"></span>
+                </div>
+            </div>
         </div>
     </template>
 
     <!-- Report Modal -->
     <div id="report-modal" class="fixed inset-0 z-40 flex items-center justify-center p-4 modal-backdrop hidden">
-        <div class="bg-white rounded-lg shadow-2xl w-full max-w-md mx-auto" id="modal-content-report">
+        <div class="bg-white rounded-lg shadow-2xl w-full max-w-md mx-auto p-6 max-h-[80vh] overflow-y-auto"
+            id="modal-content-report">
             <div class="flex justify-between items-center p-4 border-b">
                 <h3 class="text-lg font-bold">Reportar una Mascota</h3>
                 <button id="close-report-modal-btn" class="text-gray-400 hover:text-gray-600 text-2xl">&times;</button>
@@ -103,39 +134,131 @@
             <form id="report-form" class="p-6 space-y-4">
                 <div>
                     <label for="animal-status-input" class="block text-sm font-medium text-gray-700">Estado</label>
-                    <select id="animal-status-input" required class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-emerald-500 focus:border-emerald-500 sm:text-sm">
+                    <select id="animal-status-input" required
+                        class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-emerald-500 focus:border-emerald-500 sm:text-sm">
                         <option>Perdido</option>
                         <option>Encontrado</option>
                         <option>Adopción</option>
                     </select>
                 </div>
+
                 <div>
-                    <label for="animal-type-input" class="block text-sm font-medium text-gray-700">Tipo de Animal</label>
-                    <input type="text" id="animal-type-input" placeholder="Ej: Golden Retriever, Gato Atigrado" required class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-emerald-500 focus:border-emerald-500 sm:text-sm">
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Tipo de Animal</label>
+                    <div class="flex gap-4">
+                        <label class="flex items-center">
+                            <input type="radio" name="animal-type" id="animal-type-perro" value="Perro" required
+                                class="mr-2">
+                            Perro
+                        </label>
+                        <label class="flex items-center">
+                            <input type="radio" name="animal-type" id="animal-type-gato" value="Gato" required
+                                class="mr-2">
+                            Gato
+                        </label>
+                    </div>
                 </div>
-                 <div>
-                    <label for="animal-location-input" class="block text-sm font-medium text-gray-700">Ubicación</label>
-                    <input type="text" id="animal-location-input" placeholder="Ej: Montevideo, Uruguay" required class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-emerald-500 focus:border-emerald-500 sm:text-sm">
+
+                <div>
+                    <label for="animal-name-input" class="block text-sm font-medium text-gray-700">Nombre
+                        (Opcional)</label>
+                    <input type="text" id="animal-name-input" placeholder="Ej: Luna (si lo conoces)"
+                        class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-emerald-500 focus:border-emerald-500 sm:text-sm">
+                </div>
+
+                <div>
+                    <label for="animal-breed-input" class="block text-sm font-medium text-gray-700">Raza</label>
+                    <input type="text" id="animal-breed-input" required placeholder="Ej: Mestizo, Labrador, Siames"
+                        class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-emerald-500 focus:border-emerald-500 sm:text-sm">
+                </div>
+
+                <div class="grid grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Sexo</label>
+                        <div class="flex gap-4 pt-2">
+                            <label class="flex items-center">
+                                <input type="radio" name="animal-sex" value="Macho" required class="mr-2">
+                                Macho
+                            </label>
+                            <label class="flex items-center">
+                                <input type="radio" name="animal-sex" value="Hembra" required class="mr-2">
+                                Hembra
+                            </label>
+                        </div>
+                    </div>
+                    <div>
+                        <label for="animal-age-input" class="block text-sm font-medium text-gray-700">Edad
+                            Estimada</label>
+                        <select id="animal-age-input" required
+                            class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-emerald-500 focus:border-emerald-500 sm:text-sm">
+                            <option value="">Seleccionar...</option>
+                            <option>Cachorro</option>
+                            <option>Joven</option>
+                            <option>Adulto</option>
+                            <option>Senior</option>
+                        </select>
+                    </div>
                 </div>
                 <div>
-                    <label for="animal-description-input" class="block text-sm font-medium text-gray-700">Descripción</label>
-                    <textarea id="animal-description-input" rows="3" placeholder="Color, tamaño, temperamento, última vez visto, etc." required class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-emerald-500 focus:border-emerald-500 sm:text-sm"></textarea>
+                    <label for="animal-department-input"
+                        class="block text-sm font-medium text-gray-700">Departamento</label>
+                    <select id="animal-department-input" required
+                        class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 transition">
+                        <option value="">Selecciona un departamento</option>
+                    </select>
                 </div>
-                 <div>
-                    <label for="animal-contact-input" class="block text-sm font-medium text-gray-700">Información de Contacto (Opcional)</label>
-                    <input type="text" id="animal-contact-input" placeholder="Teléfono o email" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-emerald-500 focus:border-emerald-500 sm:text-sm">
+                <div>
+                    <label for="animal-city-input" class="block text-sm font-medium text-gray-700">Ciudad</label>
+                    <select id="animal-city-input" required
+                        class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 transition">
+                        <option value="">Selecciona una ciudad</option>
+                    </select>
                 </div>
-                 <div>
-                    <label for="animal-image-input" class="block text-sm font-medium text-gray-700">URL de la Imagen</label>
-                    <input type="url" id="animal-image-input" placeholder="https://ejemplo.com/imagen.jpg" required class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-emerald-500 focus:border-emerald-500 sm:text-sm">
+                <div>
+                    <label for="animal-neighborhood-input"
+                        class="block text-sm font-medium text-gray-700">Barrio</label>
+                    <select id="animal-neighborhood-input" required
+                        class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 transition">
+                        <option value="">Selecciona un barrio</option>
+                    </select>
                 </div>
+
+                <div>
+                    <label for="animal-description-input"
+                        class="block text-sm font-medium text-gray-700">Descripción</label>
+                    <textarea id="animal-description-input" rows="3"
+                        placeholder="Color, tamaño, marcas distintivas, última vez visto, etc." required
+                        class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-emerald-500 focus:border-emerald-500 sm:text-sm"
+                        oninvalid="this.setCustomValidity('Por favor ingresa una descripción.')"
+                        oninput="this.setCustomValidity('')"></textarea>
+                </div>
+                <div>
+                    <label for="animal-contact-input" class="block text-sm font-medium text-gray-700">Información de
+                        Contacto (Opcional)</label>
+                    <input type="text" id="animal-contact-input" placeholder="Teléfono o email"
+                        class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-emerald-500 focus:border-emerald-500 sm:text-sm">
+                </div>
+                <div>
+                    <label for="animal-image-input" class="block text-sm font-medium text-gray-700">Foto de la
+                        Mascota</label>
+                    <label for="animal-image-input"
+                        class="cursor-pointer bg-emerald-600 text-white px-4 py-2 rounded-lg hover:bg-emerald-700 inline-block">
+                        Elegir archivo
+                    </label>
+                    <input type="file" id="animal-image-input" accept="image/*" required class="hidden"
+                        oninvalid="this.setCustomValidity('Por favor selecciona una foto de la mascota.')"
+                        oninput="this.setCustomValidity('')">
+                    <span id="file-chosen" class="ml-2 text-gray-700"></span>
+                </div>
+
                 <div class="pt-4 flex justify-end">
-                    <button type="submit" class="bg-emerald-600 text-white font-semibold py-2 px-6 rounded-lg hover:bg-emerald-700 transition-colors duration-300">Enviar Reporte</button>
+                    <button type="submit"
+                        class="bg-emerald-600 text-white font-semibold py-2 px-6 rounded-lg hover:bg-emerald-700 transition-colors duration-300">Enviar
+                        Reporte</button>
                 </div>
             </form>
         </div>
     </div>
-    
+
     <!-- Detail Modal -->
     <div id="detail-modal" class="fixed inset-0 z-50 flex items-center justify-center p-4 modal-backdrop hidden">
         <div class="bg-white rounded-lg shadow-2xl w-full max-w-lg mx-auto" id="modal-content-detail">
@@ -160,7 +283,7 @@
                             <h4 class="text-sm font-semibold text-gray-500">Ubicación</h4>
                             <p class="detail-location text-gray-800"></p>
                         </div>
-                         <div>
+                        <div>
                             <h4 class="text-sm font-semibold text-gray-500">Fecha del Reporte</h4>
                             <p class="detail-date text-gray-800"></p>
                         </div>
@@ -174,37 +297,58 @@
         </div>
     </div>
 
+    <div id="duplicate-modal" class="fixed inset-0 z-50 flex items-center justify-center p-4 modal-backdrop hidden">
+        <div class="bg-white rounded-lg shadow-2xl w-full max-w-lg mx-auto p-6 max-h-[80vh] overflow-y-auto">
+            <h3 class="text-lg font-bold mb-2">Reporte similar encontrado</h3>
+            <p class="mb-4">Ya existe un reporte similar en las últimas 24 horas. ¿Es este el animal que quieres
+                reportar?</p>
+            <div id="duplicate-content" class="mb-4"></div>
+            <div class="flex justify-end gap-2">
+                <button id="close-duplicate-modal-btn"
+                    class="bg-gray-300 text-gray-700 px-4 py-2 rounded">Cerrar</button>
+            </div>
+        </div>
+    </div>
 
     <script type="module">
         // Firebase Imports
         import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
         import { getAuth, signInAnonymously, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
-        import { getFirestore, collection, addDoc, onSnapshot, serverTimestamp, query } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
+        import { getFirestore, collection, addDoc, onSnapshot, serverTimestamp, query, where, Timestamp, getDocs } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
+        import { getStorage, ref, uploadBytes, getDownloadURL } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-storage.js";
 
-        // Your web app's Firebase configuration
         const firebaseConfig = {
-          apiKey: "AIzaSyDGgGgCM0XX3sPN1_9VqW4zXjyoKmA4KpE",
-          authDomain: "pet-help-869bc.firebaseapp.com",
-          databaseURL: "https://pet-help-869bc-default-rtdb.firebaseio.com",
-          projectId: "pet-help-869bc",
-          storageBucket: "pet-help-869bc.firebasestorage.app",
-          messagingSenderId: "944699081809",
-          appId: "1:944699081809:web:1929b2f3d9544748cca470",
-          measurementId: "G-DEVF3RNPDE"
+            apiKey: "AIzaSyDGgGgCM0XX3sPN1_9VqW4zXjyoKmA4KpE",
+            authDomain: "pet-help-869bc.firebaseapp.com",
+            databaseURL: "https://pet-help-869bc-default-rtdb.firebaseio.com",
+            projectId: "pet-help-869bc",
+            storageBucket: "pet-help-869bc.firebasestorage.app",
+            messagingSenderId: "944699081809",
+            appId: "1:944699081809:web:1929b2f3d9544748cca470",
+            measurementId: "G-DEVF3RNPDE"
         };
 
+        let departamentos = {};
+
+        async function cargarDepartamentos() {
+            const res = await fetch('localidades_uruguay.json');
+            departamentos = await res.json();
+        }
+
         document.addEventListener('DOMContentLoaded', async () => {
-            
+            await cargarDepartamentos();
+            console.log('Departamentos cargados:', departamentos);
+
             const app = initializeApp(firebaseConfig);
             const db = getFirestore(app);
             const auth = getAuth(app);
 
-            let allAnimals = []; 
+            let allAnimals = [];
 
             const grid = document.getElementById('animal-grid');
             const template = document.getElementById('animal-template');
             const filterContainer = document.getElementById('filter-container');
-            
+
             // Report Modal elements
             const reportBtn = document.getElementById('report-btn');
             const reportModal = document.getElementById('report-modal');
@@ -217,6 +361,14 @@
             const closeDetailModalBtn = document.getElementById('close-detail-modal-btn');
             const detailModalContent = document.getElementById('modal-content-detail');
 
+            // Duplicate Modal elements
+            const duplicateModal = document.getElementById('duplicate-modal');
+            const duplicateContent = document.getElementById('duplicate-content');
+            const closeDuplicateModalBtn = document.getElementById('close-duplicate-modal-btn');
+
+            closeDuplicateModalBtn.addEventListener('click', () => {
+                duplicateModal.classList.add('hidden');
+            });
 
             const statusColors = {
                 'Perdido': 'bg-red-500',
@@ -227,14 +379,16 @@
             function showDetailModal(animal) {
                 detailModal.querySelector('.detail-image').src = animal.image;
                 detailModal.querySelector('.detail-type').textContent = animal.type;
-                
+
                 const statusBadge = detailModal.querySelector('.detail-status');
                 statusBadge.textContent = animal.status;
                 statusBadge.className = '';
                 statusBadge.classList.add('detail-status', 'text-white', 'text-sm', 'font-bold', 'py-1', 'px-3', 'rounded-full', statusColors[animal.status]);
 
                 detailModal.querySelector('.detail-description').textContent = animal.description;
-                detailModal.querySelector('.detail-location').textContent = animal.location;
+                // Actualiza la ubicación para mostrar departamento, ciudad y barrio
+                detailModal.querySelector('.detail-location').textContent =
+                    [animal.department, animal.city, animal.neighborhood].filter(Boolean).join(', ');
                 detailModal.querySelector('.detail-contact').textContent = animal.contact || 'No disponible';
 
                 if (animal.createdAt && animal.createdAt.toDate) {
@@ -249,24 +403,25 @@
 
             function renderAnimals(filter = 'all') {
                 grid.innerHTML = '';
-                const filteredAnimals = filter === 'all' 
-                    ? allAnimals 
+                const filteredAnimals = filter === 'all'
+                    ? allAnimals
                     : allAnimals.filter(animal => animal.status === filter);
 
                 filteredAnimals.sort((a, b) => b.createdAt?.toMillis() - a.createdAt?.toMillis());
 
                 filteredAnimals.forEach(animal => {
                     const cardElement = template.content.cloneNode(true).querySelector('.animal-card');
-                    
+
                     cardElement.querySelector('.animal-image').src = animal.image;
                     const statusBadge = cardElement.querySelector('.animal-status');
                     statusBadge.textContent = animal.status;
-                    statusBadge.className = ''; 
+                    statusBadge.className = '';
                     statusBadge.classList.add('animal-status', 'absolute', 'top-2', 'left-2', 'text-white', 'text-xs', 'font-bold', 'py-1', 'px-3', 'rounded-full', statusColors[animal.status]);
                     cardElement.querySelector('.animal-type').textContent = animal.type;
                     cardElement.querySelector('.animal-description').textContent = animal.description;
-                    cardElement.querySelector('.animal-location').textContent = animal.location;
-                    
+                    cardElement.querySelector('.animal-location').textContent =
+                        [animal.department, animal.city, animal.neighborhood].filter(Boolean).join(', ');
+
                     const dateElement = cardElement.querySelector('.animal-date');
                     if (animal.createdAt && animal.createdAt.toDate) {
                         const date = animal.createdAt.toDate();
@@ -280,7 +435,7 @@
                     grid.appendChild(cardElement);
                 });
             }
-            
+
             filterContainer.addEventListener('click', (e) => {
                 if (e.target.classList.contains('filter-btn')) {
                     filterContainer.querySelectorAll('.filter-btn').forEach(btn => {
@@ -317,31 +472,103 @@
             reportForm.addEventListener('submit', async (e) => {
                 e.preventDefault();
                 try {
+                    const storage = getStorage();
                     const animalCollection = collection(db, "animals");
-                    await addDoc(animalCollection, {
-                        status: document.getElementById('animal-status-input').value,
-                        type: document.getElementById('animal-type-input').value,
-                        description: document.getElementById('animal-description-input').value,
-                        location: document.getElementById('animal-location-input').value,
-                        contact: document.getElementById('animal-contact-input').value,
-                        image: document.getElementById('animal-image-input').value,
-                        createdAt: serverTimestamp() 
-                    });
-                    reportForm.reset();
-                    closeReportModal();
+
+                    const animalType = document.querySelector('input[name="animal-type"]:checked')?.value;
+                    if (!animalType) {
+                        alert("Por favor selecciona el tipo de animal.");
+                        return;
+                    }
+
+                    // Get file from input
+                    const fileInput = document.getElementById('animal-image-input');
+                    const file = fileInput.files[0];
+                    if (!file) {
+                        alert("Por favor selecciona una imagen.");
+                        return;
+                    }
+
+                    // Check for duplicate reports
+                    const animalDepartment = document.getElementById('animal-department-input').value.trim();
+                    const animalCity = document.getElementById('animal-city-input').value.trim();
+                    const animalNeighborhood = document.getElementById('animal-neighborhood-input').value.trim();
+
+                    const now = Timestamp.now();
+                    const yesterday = Timestamp.fromDate(new Date(Date.now() - 24 * 60 * 60 * 1000));
+
+                    const q = query(
+                        collection(db, "animals"),
+                        where("type", "==", animalType),
+                        where("department", "==", animalDepartment),
+                        where("city", "==", animalCity),
+                        where("neighborhood", "==", animalNeighborhood),
+                        where("createdAt", ">", yesterday)
+                    );
+
+                    const snapshot = await getDocs(q);
+                    if (!snapshot.empty) {
+                        let html = '';
+                        snapshot.forEach(docSnap => {
+                            const doc = docSnap.data();
+                            html += `
+                                <div class="mb-4 border-b pb-4">
+                                    <img src="${doc.image}" alt="Foto de animal" class="w-full h-40 object-cover rounded mb-2">
+                                    <div><strong>Tipo:</strong> ${doc.type}</div>
+                                    <div><strong>Ubicación:</strong> ${[doc.department, doc.city, doc.neighborhood].filter(Boolean).join(', ')}</div>
+                                    <div><strong>Descripción:</strong> ${doc.description}</div>
+                                    <div><strong>Estado:</strong> ${doc.status}</div>
+                                    <div><strong>Contacto:</strong> ${doc.contact || 'No disponible'}</div>
+                                </div>
+                            `;
+                        });
+                        html += `<div class="flex justify-end gap-2">
+                            <button id="continue-anyway-btn" type="button" class="bg-emerald-600 text-white px-4 py-2 rounded">Reportar de todos modos</button>
+                            <button id="close-duplicate-modal-btn" type="button" class="bg-gray-300 text-gray-700 px-4 py-2 rounded">Cancelar</button>
+                        </div>`;
+                        duplicateContent.innerHTML = html;
+                        duplicateModal.classList.remove('hidden');
+
+                        // Asigna los eventos después de que el HTML esté en el DOM
+                        setTimeout(() => {
+                            const continueBtn = document.getElementById('continue-anyway-btn');
+                            const closeBtn = document.getElementById('close-duplicate-modal-btn');
+                            if (closeBtn) {
+                                closeBtn.onclick = () => {
+                                    duplicateModal.classList.add('hidden');
+                                };
+                            }
+                            if (continueBtn) {
+                                continueBtn.onclick = async () => {
+                                    duplicateModal.classList.add('hidden');
+                                    await uploadAnimal();
+                                };
+                            }
+                        }, 0);
+
+                        return;
+                    }
+                    await uploadAnimal();
                 } catch (error) {
                     console.error("Error al añadir documento: ", error);
+                    alert("Error al subir la imagen o guardar el reporte.");
                 }
+            });
+
+            const fileInput = document.getElementById('animal-image-input');
+            const fileChosen = document.getElementById('file-chosen');
+            fileInput.addEventListener('change', function () {
+                fileChosen.textContent = this.files[0] ? this.files[0].name : '';
             });
 
             onAuthStateChanged(auth, (user) => {
                 if (user) {
                     console.log("Usuario conectado:", user.uid);
                     const animalCollection = collection(db, "animals");
-                    const q = query(animalCollection); 
-                    
+                    const q = query(animalCollection);
+
                     onSnapshot(q, (querySnapshot) => {
-                        allAnimals = []; 
+                        allAnimals = [];
                         querySnapshot.forEach((doc) => {
                             allAnimals.push({ id: doc.id, ...doc.data() });
                         });
@@ -354,8 +581,85 @@
             });
 
             await signInAnonymously(auth);
+
+            const departmentSelect = document.getElementById('animal-department-input');
+            const citySelect = document.getElementById('animal-city-input');
+            const neighborhoodSelect = document.getElementById('animal-neighborhood-input');
+
+            departmentSelect.addEventListener('change', () => {
+                const dept = departmentSelect.value;
+                console.log('Departamento seleccionado:', dept, departamentos[dept]);
+                citySelect.innerHTML = '<option value="">Selecciona una ciudad</option>';
+                neighborhoodSelect.innerHTML = '<option value="">Selecciona un barrio</option>';
+                if (dept && departamentos[dept]) {
+                    Object.keys(departamentos[dept].ciudades).forEach(city => {
+                        citySelect.innerHTML += `<option>${city}</option>`;
+                    });
+                }
+            });
+
+            citySelect.addEventListener('change', () => {
+                const dept = departmentSelect.value;
+                const city = citySelect.value;
+                neighborhoodSelect.innerHTML = '<option value="">Selecciona un barrio</option>';
+                if (dept && city && departamentos[dept] && departamentos[dept].ciudades[city]) {
+                    departamentos[dept].ciudades[city].forEach(barrio => {
+                        neighborhoodSelect.innerHTML += `<option>${barrio}</option>`;
+                    });
+                }
+            });
+
+            departmentSelect.innerHTML = '<option value="">Selecciona un departamento</option>';
+            Object.keys(departamentos).forEach(dept => {
+                departmentSelect.innerHTML += `<option value="${dept}">${dept}</option>`;
+            });
         });
+
+        async function uploadAnimal() {
+            // Upload to Cloudinary
+            const cloudName = 'dbmhr0q5q';
+            const uploadPreset = 'pethelp_unsigned';
+
+            const fileInput = document.getElementById('animal-image-input');
+            const file = fileInput.files[0];
+
+            const formData = new FormData();
+            formData.append('file', file);
+            formData.append('upload_preset', uploadPreset);
+
+            const cloudinaryRes = await fetch(`https://api.cloudinary.com/v1_1/${cloudName}/image/upload`, {
+                method: 'POST',
+                body: formData
+            });
+            const cloudinaryData = await cloudinaryRes.json();
+
+            if (!cloudinaryRes.ok || !cloudinaryData.secure_url) {
+                console.error("Cloudinary error:", cloudinaryData);
+                alert("Error al subir la imagen. Verifica tu conexión o intenta con otra imagen.");
+                return;
+            }
+            const imageUrl = cloudinaryData.secure_url;
+
+            // Save animal data with image URL
+            await addDoc(collection(db, "animals"), {
+                name: document.getElementById('animal-name-input').value,
+                breed: document.getElementById('animal-breed-input').value,
+                sex: document.querySelector('input[name="animal-sex"]:checked')?.value,
+                age: document.getElementById('animal-age-input').value,
+                status: document.getElementById('animal-status-input').value,
+                type: document.querySelector('input[name="animal-type"]:checked')?.value,
+                description: document.getElementById('animal-description-input').value,
+                department: document.getElementById('animal-department-input').value,
+                city: document.getElementById('animal-city-input').value,
+                neighborhood: document.getElementById('animal-neighborhood-input').value,
+                contact: document.getElementById('animal-contact-input').value,
+                image: imageUrl,
+                createdAt: serverTimestamp()
+            });
+            reportForm.reset();
+            closeReportModal();
+        }
     </script>
 </body>
-</html>
 
+</html>

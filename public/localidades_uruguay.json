@@ -1,0 +1,29 @@
+{
+  "Artigas": {
+    "ciudades": {
+      "Artigas": ["Centro", "Barrio Sur", "Barrio Norte"],
+      "Bella Unión": ["Centro", "Las Piedras"]
+    }
+  },
+  "Canelones": {
+    "ciudades": {
+      "Ciudad de la Costa": ["Solymar", "Lagomar", "El Pinar", "Shangrilá"],
+      "Las Piedras": ["Barrio Sur", "Barrio Norte", "San Isidro"],
+      "Pando": ["Centro", "Barrio Industrial"],
+      "Atlántida": ["Centro", "Villa Argentina"]
+    }
+  },
+  "Montevideo": {
+    "ciudades": {
+      "Montevideo": [
+        "Centro", "Cordón", "Pocitos", "Malvín", "Carrasco", "Aguada", "Tres Cruces", "Buceo", "La Blanqueada", "Parque Rodó", "Ciudad Vieja", "Prado", "Sayago", "Cerro", "Casabó", "Nuevo París", "Belvedere", "La Teja", "Peñarol", "Colón", "Lezica", "Conciliación", "Villa Española", "Ituzaingó", "Manga", "Punta Carretas"
+      ]
+    }
+  },
+  "Maldonado": {
+    "ciudades": {
+      "Maldonado": ["Centro", "Pinares", "El Jagüel", "San Rafael"],
+      "Punta del Este": ["Peninsula", "Aidyn", "Beverly Hills", "Cantegril"]
+    }
+  }
+}
