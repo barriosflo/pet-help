@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Community Pet Watch</title>
+    <title>SOS MASCOTAS</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
@@ -30,13 +30,13 @@
                      <svg class="h-8 w-8 text-emerald-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 016-6h6a6 6 0 016 6v1h-3M15 21a3 3 0 01-3 3H9a3 3 0 01-3-3m15-12a3 3 0 00-3-3H6a3 3 0 00-3 3v6a3 3 0 003 3h12a3 3 0 003-3v-6z" />
                     </svg>
-                    <h1 class="text-2xl font-bold text-gray-800">Pet Watch</h1>
+                    <h1 class="text-2xl font-bold text-gray-800">Alerta Mascota</h1>
                 </div>
                 <button id="report-btn" class="bg-emerald-600 text-white font-semibold py-2 px-4 rounded-lg hover:bg-emerald-700 transition-colors duration-300 flex items-center space-x-2">
                     <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
                         <path d="M10.75 4.75a.75.75 0 00-1.5 0v4.5h-4.5a.75.75 0 000 1.5h4.5v4.5a.75.75 0 001.5 0v-4.5h4.5a.75.75 0 000-1.5h-4.5v-4.5z" />
                     </svg>
-                    <span>Report Animal</span>
+                    <span>Reportar mascota</span>
                 </button>
             </div>
         </div>
@@ -45,21 +45,21 @@
     <div class="container mx-auto px-4 py-8">
         <!-- Header -->
         <header class="text-center mb-8">
-            <h2 class="text-3xl font-bold text-gray-800">Community Animal Board</h2>
-            <p class="text-gray-600 mt-2">Find lost pets, report found animals, or discover a new friend.</p>
+            <h2 class="text-3xl font-bold text-gray-800">Todas las mascotas</h2>
+            <p class="text-gray-600 mt-2">Encontrá mascotas perdidas, reportá animales encontrados o descubrí un nuevo amigo.</p>
         </header>
 
         <!-- Filter Buttons -->
         <div id="filter-container" class="flex flex-wrap justify-center gap-3 mb-8">
-            <button data-filter="all" class="filter-btn active-filter py-2 px-5 rounded-full text-sm font-semibold border-2 border-transparent transition-colors duration-300">All</button>
-            <button data-filter="Lost" class="filter-btn bg-white py-2 px-5 rounded-full text-sm font-semibold text-gray-700 hover:bg-gray-200 border-2 border-gray-200 transition-colors duration-300">Lost</button>
-            <button data-filter="Found" class="filter-btn bg-white py-2 px-5 rounded-full text-sm font-semibold text-gray-700 hover:bg-gray-200 border-2 border-gray-200 transition-colors duration-300">Found</button>
-            <button data-filter="Adoption" class="filter-btn bg-white py-2 px-5 rounded-full text-sm font-semibold text-gray-700 hover:bg-gray-200 border-2 border-gray-200 transition-colors duration-300">For Adoption</button>
+            <button data-filter="all" class="filter-btn active-filter py-2 px-5 rounded-full text-sm font-semibold border-2 border-transparent transition-colors duration-300">Todos</button>
+            <button data-filter="Perdido" class="filter-btn bg-white py-2 px-5 rounded-full text-sm font-semibold text-gray-700 hover:bg-gray-200 border-2 border-gray-200 transition-colors duration-300">Perdidos</button>
+            <button data-filter="Encontrado" class="filter-btn bg-white py-2 px-5 rounded-full text-sm font-semibold text-gray-700 hover:bg-gray-200 border-2 border-gray-200 transition-colors duration-300">Encontrados</button>
+            <button data-filter="Adopción" class="filter-btn bg-white py-2 px-5 rounded-full text-sm font-semibold text-gray-700 hover:bg-gray-200 border-2 border-gray-200 transition-colors duration-300">En Adopción</button>
         </div>
 
         <!-- Animal Grid -->
         <main id="animal-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-            <!-- Animal cards will be dynamically inserted here -->
+            <!-- Las tarjetas de animales se insertarán dinámicamente aquí -->
         </main>
     </div>
 
@@ -67,7 +67,7 @@
     <template id="animal-template">
         <div class="animal-card bg-white rounded-lg shadow-md overflow-hidden flex flex-col transform hover:-translate-y-1 transition-transform duration-300">
             <div class="relative">
-                <img class="animal-image w-full h-56 object-cover" src="" alt="Animal photo" onerror="this.onerror=null;this.src='https://placehold.co/600x400/e2e8f0/4a5568?text=Image+Not+Found';">
+                <img class="animal-image w-full h-56 object-cover" src="" alt="Foto de animal" onerror="this.onerror=null;this.src='https://placehold.co/600x400/e2e8f0/4a5568?text=Imagen+No+Encontrada';">
                 <span class="animal-status absolute top-2 left-2 text-white text-xs font-bold py-1 px-3 rounded-full"></span>
             </div>
             <div class="p-4 flex-grow">
@@ -85,36 +85,36 @@
     <div id="report-modal" class="fixed inset-0 z-30 flex items-center justify-center p-4 modal-backdrop hidden">
         <div class="bg-white rounded-lg shadow-2xl w-full max-w-md mx-auto" id="modal-content">
             <div class="flex justify-between items-center p-4 border-b">
-                <h3 class="text-lg font-bold">Report an Animal</h3>
+                <h3 class="text-lg font-bold">Reportar una Mascota</h3>
                 <button id="close-modal-btn" class="text-gray-400 hover:text-gray-600">&times;</button>
             </div>
             <form id="report-form" class="p-6 space-y-4">
                 <div>
-                    <label for="animal-status-input" class="block text-sm font-medium text-gray-700">Status</label>
+                    <label for="animal-status-input" class="block text-sm font-medium text-gray-700">Estado</label>
                     <select id="animal-status-input" required class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-emerald-500 focus:border-emerald-500 sm:text-sm">
-                        <option>Lost</option>
-                        <option>Found</option>
-                        <option>For Adoption</option>
+                        <option>Perdido</option>
+                        <option>Encontrado</option>
+                        <option>Adopción</option>
                     </select>
                 </div>
                 <div>
-                    <label for="animal-type-input" class="block text-sm font-medium text-gray-700">Type of Animal</label>
-                    <input type="text" id="animal-type-input" placeholder="e.g., Golden Retriever, Tabby Cat" required class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-emerald-500 focus:border-emerald-500 sm:text-sm">
+                    <label for="animal-type-input" class="block text-sm font-medium text-gray-700">Tipo de Animal</label>
+                    <input type="text" id="animal-type-input" placeholder="Ej: Golden Retriever, Gato Atigrado" required class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-emerald-500 focus:border-emerald-500 sm:text-sm">
                 </div>
                  <div>
-                    <label for="animal-location-input" class="block text-sm font-medium text-gray-700">Location</label>
-                    <input type="text" id="animal-location-input" placeholder="e.g., Montevideo, Uruguay" required class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-emerald-500 focus:border-emerald-500 sm:text-sm">
+                    <label for="animal-location-input" class="block text-sm font-medium text-gray-700">Ubicación</label>
+                    <input type="text" id="animal-location-input" placeholder="Ej: Montevideo, Uruguay" required class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-emerald-500 focus:border-emerald-500 sm:text-sm">
                 </div>
                 <div>
-                    <label for="animal-description-input" class="block text-sm font-medium text-gray-700">Description</label>
-                    <textarea id="animal-description-input" rows="3" placeholder="Color, size, temperament, last seen, etc." required class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-emerald-500 focus:border-emerald-500 sm:text-sm"></textarea>
+                    <label for="animal-description-input" class="block text-sm font-medium text-gray-700">Descripción</label>
+                    <textarea id="animal-description-input" rows="3" placeholder="Color, tamaño, temperamento, última vez visto, etc." required class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-emerald-500 focus:border-emerald-500 sm:text-sm"></textarea>
                 </div>
                  <div>
-                    <label for="animal-image-input" class="block text-sm font-medium text-gray-700">Image URL</label>
-                    <input type="url" id="animal-image-input" placeholder="https://example.com/image.jpg" required class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-emerald-500 focus:border-emerald-500 sm:text-sm">
+                    <label for="animal-image-input" class="block text-sm font-medium text-gray-700">URL de la Imagen</label>
+                    <input type="url" id="animal-image-input" placeholder="https://ejemplo.com/imagen.jpg" required class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-emerald-500 focus:border-emerald-500 sm:text-sm">
                 </div>
                 <div class="pt-4 flex justify-end">
-                    <button type="submit" class="bg-emerald-600 text-white font-semibold py-2 px-6 rounded-lg hover:bg-emerald-700 transition-colors duration-300">Submit Report</button>
+                    <button type="submit" class="bg-emerald-600 text-white font-semibold py-2 px-6 rounded-lg hover:bg-emerald-700 transition-colors duration-300">Enviar Reporte</button>
                 </div>
             </form>
         </div>
@@ -157,9 +157,9 @@
             const modalContent = document.getElementById('modal-content');
 
             const statusColors = {
-                'Lost': 'bg-red-500',
-                'Found': 'bg-blue-500',
-                'Adoption': 'bg-green-500'
+                'Perdido': 'bg-red-500',
+                'Encontrado': 'bg-blue-500',
+                'Adopción': 'bg-green-500'
             };
 
             function renderAnimals(filter = 'all') {
@@ -178,8 +178,7 @@
                     statusBadge.className = ''; 
                     statusBadge.classList.add('animal-status', 'absolute', 'top-2', 'left-2', 'text-white', 'text-xs', 'font-bold', 'py-1', 'px-3', 'rounded-full', statusColors[animal.status]);
                     card.querySelector('.animal-type').textContent = animal.type;
-                    card.querySelector('.animal-description').textContent = a
-nimal.description;
+                    card.querySelector('.animal-description').textContent = animal.description;
                     card.querySelector('.animal-location').textContent = animal.location;
                     grid.appendChild(card);
                 });
@@ -223,13 +222,13 @@ nimal.description;
                     reportForm.reset();
                     closeModal();
                 } catch (error) {
-                    console.error("Error adding document: ", error);
+                    console.error("Error al añadir documento: ", error);
                 }
             });
 
             onAuthStateChanged(auth, (user) => {
                 if (user) {
-                    console.log("User is signed in:", user.uid);
+                    console.log("Usuario conectado:", user.uid);
                     const animalCollection = collection(db, "animals");
                     const q = query(animalCollection); 
                     
@@ -238,11 +237,11 @@ nimal.description;
                         querySnapshot.forEach((doc) => {
                             allAnimals.push({ id: doc.id, ...doc.data() });
                         });
-                        console.log("Current animals: ", allAnimals.length);
+                        console.log("Mascotas actuales: ", allAnimals.length);
                         renderAnimals(document.querySelector('.filter-btn.active-filter').dataset.filter);
                     });
                 } else {
-                    console.log("User is signed out.");
+                    console.log("Usuario desconectado.");
                 }
             });
 
@@ -251,3 +250,4 @@ nimal.description;
     </script>
 </body>
 </html>
+
